@@ -567,12 +567,12 @@
   #define SPINDLE_DIRECTION_BIT   3 // MEGA2560 Digital Pin 5 - Ramps 1.4 Servo 3 Signal pin (D5)
 
   // Define flood and mist coolant enable output pins.
-  #define COOLANT_FLOOD_DDR   DDRB
-  #define COOLANT_FLOOD_PORT  PORTB
-  #define COOLANT_FLOOD_BIT   4 // MEGA2560 Digital Pin 10 - Ramps 1.4 12v output
-  #define COOLANT_MIST_DDR    DDRH
-  #define COOLANT_MIST_PORT   PORTH
-  #define COOLANT_MIST_BIT    6 // MEGA2560 Digital Pin 9 - Ramps 1.4 12v output
+  #define COOLANT_FLOOD_DDR   DDRE
+  #define COOLANT_FLOOD_PORT  PORTE
+  #define COOLANT_FLOOD_BIT   4 // MEGA2560 Digital Pin 10 - HEAT-0
+  #define COOLANT_MIST_DDR    DDRE
+  #define COOLANT_MIST_PORT   PORTE
+  #define COOLANT_MIST_BIT    5 // MEGA2560 Digital Pin 9 - HEAT-1
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
