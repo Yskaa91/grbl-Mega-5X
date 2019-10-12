@@ -499,19 +499,19 @@
     #define MIN_LIMIT_PORT_3 E
   #endif
   #if N_AXIS > 4
-    #define MIN_LIMIT_PORT_4 J
+    #define MIN_LIMIT_PORT_4 A
   #endif
   #if N_AXIS > 5
     #define MIN_LIMIT_PORT_5 F // (Ramps Aux-1 D57)
   #endif
-  #define MIN_LIMIT_BIT_0 0 // X Limit Min - Pin D3
-  #define MIN_LIMIT_BIT_1 4 // Y Limit Min - Pin D14
-  #define MIN_LIMIT_BIT_2 7 // Z Limit Min - Pin D18
+  #define MIN_LIMIT_BIT_0 0 // X Limit Min - X_Min
+  #define MIN_LIMIT_BIT_1 4 // Y Limit Min - Y_Min
+  #define MIN_LIMIT_BIT_2 1 // Z Limit Min - Random (no known mapping)
   #if N_AXIS > 3
-    #define MIN_LIMIT_BIT_3 4 // Axis number 4 : RAMPS AUX2 pin D42
+    #define MIN_LIMIT_BIT_3 2 // Axis number 4 : X_Max
   #endif
   #if N_AXIS > 4
-    #define MIN_LIMIT_BIT_4 0 // Axis number 5 : RAMPS AUX2 pin D44
+    #define MIN_LIMIT_BIT_4 6 // Axis number 5 : Y_Max
   #endif
   #if N_AXIS > 5
     #define MIN_LIMIT_BIT_5 3 // Axis number 6 : RAMPS AUX2 pin D57
@@ -522,9 +522,9 @@
   #define MIN_LIMIT_PORT(i) _PORT(MIN_LIMIT_PORT_##i)
   #define MIN_LIMIT_PIN(i) _PIN(MIN_LIMIT_PORT_##i)
 
-  #define MAX_LIMIT_PORT_0 A
-  #define MAX_LIMIT_PORT_1 A
-  #define MAX_LIMIT_PORT_2 C
+  #define MAX_LIMIT_PORT_0 L
+  #define MAX_LIMIT_PORT_1 L
+  #define MAX_LIMIT_PORT_2 L
   #if N_AXIS > 3
     #define MAX_LIMIT_PORT_3 G
   #endif
@@ -534,9 +534,9 @@
   #if N_AXIS > 5
     #define MAX_LIMIT_PORT_5 F // (Ramps Aux-3 D58)
   #endif
-  #define MAX_LIMIT_BIT_0 2 // X Limit Max - Pin D57
-  #define MAX_LIMIT_BIT_1 5 // Y Limit Max - Pin D58
-  #define MAX_LIMIT_BIT_2 5 // Z Limit Max - Pin D19
+  #define MAX_LIMIT_BIT_0 3 // X Limit Max - Random (no known mapping)
+  #define MAX_LIMIT_BIT_1 5 // Y Limit Max - Random (no known mapping)
+  #define MAX_LIMIT_BIT_2 7 // Z Limit Max - Random (no known mapping)
   #if N_AXIS > 3
     #define MAX_LIMIT_BIT_3 1 // Axis number 4 : RAMPS AUX2 pin D40
   #endif
@@ -589,10 +589,10 @@
   #define CONTROL_MASK      ((1<<CONTROL_RESET_BIT)|(1<<CONTROL_FEED_HOLD_BIT)|(1<<CONTROL_CYCLE_START_BIT)|(1<<CONTROL_SAFETY_DOOR_BIT))
 
   // Define probe switch input pin.
-  #define PROBE_DDR       DDRK
-  #define PROBE_PIN       PINK
-  #define PROBE_PORT      PORTK
-  #define PROBE_BIT       7  // MEGA2560 Analog Pin 15
+  #define PROBE_DDR       DDRC
+  #define PROBE_PIN       PINC
+  #define PROBE_PORT      PORTC
+  #define PROBE_BIT       7  // GT2560 Rev A  Z_Min(30)
   #define PROBE_MASK      (1<<PROBE_BIT)
 
   // Advanced Configuration Below You should not need to touch these variables
