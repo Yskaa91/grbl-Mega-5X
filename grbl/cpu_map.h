@@ -410,17 +410,17 @@
   #if N_AXIS > 5
     #define STEP_PORT_5 L // Axis number 6 (Ramps Aux-3 D49)
   #endif
-  #define STEP_BIT_0 3  // X Step - Pin A0
-  #define STEP_BIT_1 6  // Y Step - Pin A6
-  #define STEP_BIT_2 0  // Z Step - Pin D46
+  #define STEP_BIT_0 3  // X Step
+  #define STEP_BIT_1 6  // Y Step
+  #define STEP_BIT_2 0  // Z Step
   #if N_AXIS > 3
-    #define STEP_BIT_3 6 // Axis number 4 Step - Pin D26
+    #define STEP_BIT_3 6 // Axis number 4 Step
   #endif
   #if N_AXIS > 4
-    #define STEP_BIT_4 0 // Axis number 5 Step - Pin D36
+    #define STEP_BIT_4 0 // Axis number 5 Step
   #endif
   #if N_AXIS > 5
-    #define STEP_BIT_5 0 // Axis number 6 Step - Pin D49
+    #define STEP_BIT_5 0 // Axis number 6 Step
   #endif
   #define _STEP_BIT(i) STEP_BIT_##i
   #define STEP_BIT(i) _STEP_BIT(i)
@@ -430,29 +430,29 @@
   #define STEP_PIN(i) _PIN(STEP_PORT_##i)
 
   // Define step direction output pins.
-  #define DIRECTION_PORT_0 A
-  #define DIRECTION_PORT_1 C
-  #define DIRECTION_PORT_2 G
+  #define DIRECTION_PORT_0 A // X_Dir
+  #define DIRECTION_PORT_1 C // Y_Dir
+  #define DIRECTION_PORT_2 G // Z_Dir
   #if N_AXIS > 3
-    #define DIRECTION_PORT_3 L // Axis number 4 (Ramps E0)
+    #define DIRECTION_PORT_3 L // Axis number 4 E0_Dir
   #endif
   #if N_AXIS > 4
-    #define DIRECTION_PORT_4 L // Axis number 5 (Ramps E1)
+    #define DIRECTION_PORT_4 L // Axis number 5 E1_Dir
   #endif
   #if N_AXIS > 5
     #define DIRECTION_PORT_5 B // Axis number 6 (Ramps Aux-3 D51)
   #endif
-  #define DIRECTION_BIT_0 1 // X Dir - Pin A1
-  #define DIRECTION_BIT_1 4 // Y Dir - Pin A7
-  #define DIRECTION_BIT_2 2 // Z Dir - Pin D48
+  #define DIRECTION_BIT_0 1 // X Dir
+  #define DIRECTION_BIT_1 4 // Y Dir
+  #define DIRECTION_BIT_2 2 // Z Dir
   #if N_AXIS > 3
-    #define DIRECTION_BIT_3 4 // Axis number 4 Step - Pin D28
+    #define DIRECTION_BIT_3 4 // Axis number 4 Dir - Pin D28
   #endif
   #if N_AXIS > 4
-    #define DIRECTION_BIT_4 2 // Axis number 5 Step - Pin D34
+    #define DIRECTION_BIT_4 2 // Axis number 5 Dir - Pin D34
   #endif
   #if N_AXIS > 5
-    #define DIRECTION_BIT_5 2 // Axis number 6 Step - Pin D51
+    #define DIRECTION_BIT_5 2 // Axis number 6 Dir - Pin D51
   #endif
   #define _DIRECTION_BIT(i) DIRECTION_BIT_##i
   #define DIRECTION_BIT(i) _DIRECTION_BIT(i)
@@ -492,26 +492,26 @@
   #define STEPPER_DISABLE_PIN(i) _PIN(STEPPER_DISABLE_PORT_##i)
 
   // Define homing/hard limit switch input pins and limit interrupt vectors.
-  #define MIN_LIMIT_PORT_0 A
-  #define MIN_LIMIT_PORT_1 A
-  #define MIN_LIMIT_PORT_2 C
+  #define MIN_LIMIT_PORT_0 H
+  #define MIN_LIMIT_PORT_1 H
+  #define MIN_LIMIT_PORT_2 H
   #if N_AXIS > 3
-    #define MIN_LIMIT_PORT_3 E
+    #define MIN_LIMIT_PORT_3 H
   #endif
   #if N_AXIS > 4
-    #define MIN_LIMIT_PORT_4 A
+    #define MIN_LIMIT_PORT_4 H
   #endif
   #if N_AXIS > 5
     #define MIN_LIMIT_PORT_5 F // (Ramps Aux-1 D57)
   #endif
-  #define MIN_LIMIT_BIT_0 0 // X Limit Min - X_Min
-  #define MIN_LIMIT_BIT_1 4 // Y Limit Min - Y_Min
-  #define MIN_LIMIT_BIT_2 1 // Z Limit Min - Random (no known mapping)
+  #define MIN_LIMIT_BIT_0 7 // X Limit Min - Random (no known mapping)
+  #define MIN_LIMIT_BIT_1 7 // Y Limit Min - Random (no known mapping)
+  #define MIN_LIMIT_BIT_2 7 // Z Limit Min - Random (no known mapping)
   #if N_AXIS > 3
-    #define MIN_LIMIT_BIT_3 2 // Axis number 4 : X_Max
+    #define MIN_LIMIT_BIT_3 7 // Axis number 4 : Random (no known mapping)
   #endif
   #if N_AXIS > 4
-    #define MIN_LIMIT_BIT_4 6 // Axis number 5 : Y_Max
+    #define MIN_LIMIT_BIT_4 7 // Axis number 5 : Random (no known mapping)
   #endif
   #if N_AXIS > 5
     #define MIN_LIMIT_BIT_5 3 // Axis number 6 : RAMPS AUX2 pin D57
@@ -522,26 +522,26 @@
   #define MIN_LIMIT_PORT(i) _PORT(MIN_LIMIT_PORT_##i)
   #define MIN_LIMIT_PIN(i) _PIN(MIN_LIMIT_PORT_##i)
 
-  #define MAX_LIMIT_PORT_0 L
-  #define MAX_LIMIT_PORT_1 L
-  #define MAX_LIMIT_PORT_2 L
+  #define MAX_LIMIT_PORT_0 A
+  #define MAX_LIMIT_PORT_1 A
+  #define MAX_LIMIT_PORT_2 C
   #if N_AXIS > 3
-    #define MAX_LIMIT_PORT_3 G
+    #define MAX_LIMIT_PORT_3 A
   #endif
   #if N_AXIS > 4
-    #define MAX_LIMIT_PORT_4 F
+    #define MAX_LIMIT_PORT_4 A
   #endif
   #if N_AXIS > 5
     #define MAX_LIMIT_PORT_5 F // (Ramps Aux-3 D58)
   #endif
-  #define MAX_LIMIT_BIT_0 3 // X Limit Max - Random (no known mapping)
-  #define MAX_LIMIT_BIT_1 5 // Y Limit Max - Random (no known mapping)
-  #define MAX_LIMIT_BIT_2 7 // Z Limit Max - Random (no known mapping)
+  #define MAX_LIMIT_BIT_0 0 // X Limit Max - X_Min
+  #define MAX_LIMIT_BIT_1 4 // Y Limit Max - Y_Min
+  #define MAX_LIMIT_BIT_2 5 // Z Limit Max - Z_Max
   #if N_AXIS > 3
-    #define MAX_LIMIT_BIT_3 1 // Axis number 4 : RAMPS AUX2 pin D40
+    #define MAX_LIMIT_BIT_3 2 // Axis number 4 : X_Max
   #endif
   #if N_AXIS > 4
-    #define MAX_LIMIT_BIT_4 5 // Axis number 5 : RAMPS AUX2 pin D59
+    #define MAX_LIMIT_BIT_4 6 // Axis number 5 : Y_Max
   #endif
   #if N_AXIS > 5
     #define MAX_LIMIT_BIT_5 4 // Axis number 6 : RAMPS AUX2 pin D58
