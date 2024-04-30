@@ -58,18 +58,18 @@
 #endif
 
 #define AXIS_1 0        // Axis indexing value. Must start with 0 and be continuous.
-#define AXIS_1_NAME 'X' // Axis names must be in X, Y, Z, A, B, C, U, V & W.
+#define AXIS_1_NAME 'Z' // Axis names must be in X, Y, Z, A, B, C, U, V & W.
 #define AXIS_2 1
 #define AXIS_2_NAME 'Y'
 #define AXIS_3 2
-#define AXIS_3_NAME 'Z'
+#define AXIS_3_NAME 'X'
 
 #if N_AXIS <3
   #error "N_AXIS must be >= 3. N_AXIS < 3 is not implemented."
 #endif
 #if N_AXIS > 3
   #define AXIS_4 3
-  #define AXIS_4_NAME 'X' // Letter of axis number 4
+  #define AXIS_4_NAME 'Z' // Letter of axis number 4
 #endif
 #if N_AXIS > 4
   #define AXIS_5 4
@@ -151,9 +151,9 @@
     #define HOMING_CYCLE_2 (1<<AXIS_1) // Home X axis
     #define HOMING_CYCLE_3 (1<<AXIS_2) // Home Y axis
   #elif N_AXIS == 5 // 5 axis : homing
-    #define HOMING_CYCLE_0 (1<<AXIS_1)   //HomeX
+    #define HOMING_CYCLE_0 (1<<AXIS_3)   //HomeX
     #define HOMING_CYCLE_1 ((1<<AXIS_2)|(1<<AXIS_5))  // HomeY
-    #define HOMING_CYCLE_3 (1<<AXIS_3) // OPTIONAL: Home Z axis
+    #define HOMING_CYCLE_3 (1<<AXIS_1) // OPTIONAL: Home Z axis
   #elif N_AXIS == 6 // 6 axis : homing
     #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
     #define HOMING_CYCLE_1 (1<<AXIS_4) // Home 4th axis (A)
