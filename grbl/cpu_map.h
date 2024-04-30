@@ -398,9 +398,9 @@
 
   // Define step pulse output pins.
 
-  #define STEP_PORT_0 A
+  #define STEP_PORT_0 C
   #define STEP_PORT_1 C
-  #define STEP_PORT_2 C
+  #define STEP_PORT_2 A
   #if N_AXIS > 3
     #define STEP_PORT_3 L // Axis number 4 (Ramps E0)
   #endif
@@ -410,9 +410,9 @@
   #if N_AXIS > 5
     #define STEP_PORT_5 L // Axis number 6 (Ramps Aux-3 D49)
   #endif
-  #define STEP_BIT_0 3  // X Step
+  #define STEP_BIT_0 0  // X Step
   #define STEP_BIT_1 6  // Y Step
-  #define STEP_BIT_2 0  // Z Step
+  #define STEP_BIT_2 3  // Z Step
   #if N_AXIS > 3
     #define STEP_BIT_3 6 // Axis number 4 Step
   #endif
@@ -422,6 +422,8 @@
   #if N_AXIS > 5
     #define STEP_BIT_5 0 // Axis number 6 Step
   #endif
+
+
   #define _STEP_BIT(i) STEP_BIT_##i
   #define STEP_BIT(i) _STEP_BIT(i)
   #define STEP_DDR(i) _DDR(STEP_PORT_##i)
@@ -430,9 +432,9 @@
   #define STEP_PIN(i) _PIN(STEP_PORT_##i)
 
   // Define step direction output pins.
-  #define DIRECTION_PORT_0 A // X_Dir
+  #define DIRECTION_PORT_0 G // X_Dir
   #define DIRECTION_PORT_1 C // Y_Dir
-  #define DIRECTION_PORT_2 G // Z_Dir
+  #define DIRECTION_PORT_2 A // Z_Dir
   #if N_AXIS > 3
     #define DIRECTION_PORT_3 L // Axis number 4 E0_Dir
   #endif
@@ -442,9 +444,9 @@
   #if N_AXIS > 5
     #define DIRECTION_PORT_5 B // Axis number 6 (Ramps Aux-3 D51)
   #endif
-  #define DIRECTION_BIT_0 1 // X Dir
+  #define DIRECTION_BIT_0 2 // X Dir
   #define DIRECTION_BIT_1 4 // Y Dir
-  #define DIRECTION_BIT_2 2 // Z Dir
+  #define DIRECTION_BIT_2 1 // Z Dir
   #if N_AXIS > 3
     #define DIRECTION_BIT_3 4 // Axis number 4 Dir - Pin D28
   #endif
@@ -454,6 +456,8 @@
   #if N_AXIS > 5
     #define DIRECTION_BIT_5 2 // Axis number 6 Dir - Pin D51
   #endif
+
+
   #define _DIRECTION_BIT(i) DIRECTION_BIT_##i
   #define DIRECTION_BIT(i) _DIRECTION_BIT(i)
   #define DIRECTION_DDR(i) _DDR(DIRECTION_PORT_##i)
