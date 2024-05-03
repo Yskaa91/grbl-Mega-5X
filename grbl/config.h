@@ -69,7 +69,7 @@
 #endif
 #if N_AXIS > 3
   #define AXIS_4 3
-  #define AXIS_4_NAME 'Z' // Letter of axis number 4
+  #define AXIS_4_NAME 'X' // Letter of axis number 4
 #endif
 #if N_AXIS > 4
   #define AXIS_5 4
@@ -151,7 +151,7 @@
     #define HOMING_CYCLE_2 (1<<AXIS_1) // Home X axis
     #define HOMING_CYCLE_3 (1<<AXIS_2) // Home Y axis
   #elif N_AXIS == 5 // 5 axis : homing
-    #define HOMING_CYCLE_0 ((1<<AXIS_1)|(1<<AXIS_3))   //HomeX
+    #define HOMING_CYCLE_0 ((1<<AXIS_3)|(1<<AXIS_4))   //HomeX
     #define HOMING_CYCLE_1 ((1<<AXIS_2)|(1<<AXIS_5))  // HomeY
   #elif N_AXIS == 6 // 6 axis : homing
     #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
