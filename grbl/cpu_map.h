@@ -490,62 +490,64 @@
   #if N_AXIS > 5
     #define STEPPER_DISABLE_BIT_5 0 // Axis number 5 Step - Pin D53
   #endif
+
   #define STEPPER_DISABLE_BIT(i) STEPPER_DISABLE_BIT_##i
   #define STEPPER_DISABLE_DDR(i) _DDR(STEPPER_DISABLE_PORT_##i)
   #define STEPPER_DISABLE_PORT(i) _PORT(STEPPER_DISABLE_PORT_##i)
   #define STEPPER_DISABLE_PIN(i) _PIN(STEPPER_DISABLE_PORT_##i)
 
   // Define homing/hard limit switch input pins and limit interrupt vectors.
-  #define MIN_LIMIT_PORT_0 H
-  #define MIN_LIMIT_PORT_1 H
-  #define MIN_LIMIT_PORT_2 H
+  #define MIN_LIMIT_PORT_0 A
+  #define MIN_LIMIT_PORT_1 A
+  #define MIN_LIMIT_PORT_2 C
   #if N_AXIS > 3
-    #define MIN_LIMIT_PORT_3 H
+    #define MIN_LIMIT_PORT_3 A
   #endif
   #if N_AXIS > 4
-    #define MIN_LIMIT_PORT_4 H
+    #define MIN_LIMIT_PORT_4 A
   #endif
   #if N_AXIS > 5
     #define MIN_LIMIT_PORT_5 F // (Ramps Aux-1 D57)
   #endif
-  #define MIN_LIMIT_BIT_0 7 // X Limit Min - Random (no known mapping)
-  #define MIN_LIMIT_BIT_1 7 // Y Limit Min - Random (no known mapping)
-  #define MIN_LIMIT_BIT_2 7 // Z Limit Min - Random (no known mapping)
+  #define MIN_LIMIT_BIT_0 0 // X min
+  #define MIN_LIMIT_BIT_1 4 // Y min
+  #define MIN_LIMIT_BIT_2 5 // Z min
   #if N_AXIS > 3
-    #define MIN_LIMIT_BIT_3 7 // Axis number 4 : Random (no known mapping)
+    #define MIN_LIMIT_BIT_3 2 // X min, used to be 2 (=X max)
   #endif
   #if N_AXIS > 4
-    #define MIN_LIMIT_BIT_4 7 // Axis number 5 : Random (no known mapping)
+    #define MIN_LIMIT_BIT_4 6 // Y min, used to be 6 (=Y max)
   #endif
   #if N_AXIS > 5
     #define MIN_LIMIT_BIT_5 3 // Axis number 6 : RAMPS AUX2 pin D57
   #endif
+
   #define _MIN_LIMIT_BIT(i) MIN_LIMIT_BIT_##i
   #define MIN_LIMIT_BIT(i) _MIN_LIMIT_BIT(i)
   #define MIN_LIMIT_DDR(i) _DDR(MIN_LIMIT_PORT_##i)
   #define MIN_LIMIT_PORT(i) _PORT(MIN_LIMIT_PORT_##i)
   #define MIN_LIMIT_PIN(i) _PIN(MIN_LIMIT_PORT_##i)
 
-  #define MAX_LIMIT_PORT_0 A
-  #define MAX_LIMIT_PORT_1 A
-  #define MAX_LIMIT_PORT_2 C
+  #define MAX_LIMIT_PORT_0 H
+  #define MAX_LIMIT_PORT_1 H
+  #define MAX_LIMIT_PORT_2 H
   #if N_AXIS > 3
-    #define MAX_LIMIT_PORT_3 A
+    #define MAX_LIMIT_PORT_3 H
   #endif
   #if N_AXIS > 4
-    #define MAX_LIMIT_PORT_4 A
+    #define MAX_LIMIT_PORT_4 H
   #endif
   #if N_AXIS > 5
     #define MAX_LIMIT_PORT_5 F // (Ramps Aux-3 D58)
   #endif
-  #define MAX_LIMIT_BIT_0 0 // X Limit Max - X_Min
-  #define MAX_LIMIT_BIT_1 4 // Y Limit Max - Y_Min
-  #define MAX_LIMIT_BIT_2 5 // Z Limit Max - Z_Max
+  #define MAX_LIMIT_BIT_0 7 // unused
+  #define MAX_LIMIT_BIT_1 7 // unused
+  #define MAX_LIMIT_BIT_2 7 // unused
   #if N_AXIS > 3
-    #define MAX_LIMIT_BIT_3 2 // Axis number 4 : X_Max
+    #define MAX_LIMIT_BIT_3 7 // unused
   #endif
   #if N_AXIS > 4
-    #define MAX_LIMIT_BIT_4 6 // Axis number 5 : Y_Max
+    #define MAX_LIMIT_BIT_4 7 // unused
   #endif
   #if N_AXIS > 5
     #define MAX_LIMIT_BIT_5 4 // Axis number 6 : RAMPS AUX2 pin D58

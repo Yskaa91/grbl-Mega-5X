@@ -58,11 +58,11 @@
 #endif
 
 #define AXIS_1 0        // Axis indexing value. Must start with 0 and be continuous.
-#define AXIS_1_NAME 'Z' // Axis names must be in X, Y, Z, A, B, C, U, V & W.
+#define AXIS_1_NAME 'X' // Axis names must be in X, Y, Z, A, B, C, U, V & W.
 #define AXIS_2 1
 #define AXIS_2_NAME 'Y'
 #define AXIS_3 2
-#define AXIS_3_NAME 'X'
+#define AXIS_3_NAME 'Z'
 
 #if N_AXIS <3
   #error "N_AXIS must be >= 3. N_AXIS < 3 is not implemented."
@@ -151,7 +151,7 @@
     #define HOMING_CYCLE_2 (1<<AXIS_1) // Home X axis
     #define HOMING_CYCLE_3 (1<<AXIS_2) // Home Y axis
   #elif N_AXIS == 5 // 5 axis : homing
-    #define HOMING_CYCLE_0 ((1<<AXIS_3)|(1<<AXIS_4))   //HomeX
+    #define HOMING_CYCLE_0 ((1<<AXIS_1)|(1<<AXIS_4))   //HomeX
     #define HOMING_CYCLE_1 ((1<<AXIS_2)|(1<<AXIS_5))  // HomeY
   #elif N_AXIS == 6 // 6 axis : homing
     #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
@@ -263,7 +263,7 @@
   //#define INVERT_MIN_LIMIT_PIN_MASK ((1<<AXIS_1) | (1<<AXIS_2) | (1<<AXIS_3))
   // Only enable the following line if you have + (max) limit switches attached
   //#define INVERT_MAX_LIMIT_PIN_MASK ((1<<AXIS_1) | (1<<AXIS_2) | (1<<AXIS_3))
-  #define INVERT_MAX_LIMIT_PIN_MASK ((1<<AXIS_1) | (1<<AXIS_2) | (1<<AXIS_3) | (1<<AXIS_4) | (1<<AXIS_5))
+  #define INVERT_MIX_LIMIT_PIN_MASK ((1<<AXIS_1) | (1<<AXIS_2) | (1<<AXIS_3) | (1<<AXIS_4) | (1<<AXIS_5))
   //#define INVERT_MIN_LIMIT_PIN_MASK ((1<<AXIS_1) | (1<<AXIS_2) | (1<<AXIS_4) | (1<<AXIS_5))
 #endif
 
